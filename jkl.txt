@@ -1,0 +1,13 @@
+stwórz repozytorium
+sklonuj je na dysk
+dodaj plik
+zacommituj
+pushnij zmiany na repo
+utwórz nową branch
+dodaj kolejny plik
+commit
+pushnij zmiany
+stwórz merge request
+zrób merge zmian
+lokalnie wróć na mastera
+pobierz zmiany z repo
