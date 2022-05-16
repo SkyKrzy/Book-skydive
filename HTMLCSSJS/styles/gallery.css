@@ -1,0 +1,76 @@
+/*
+ * floaty - oplywanie *
+ *
+
+.galleryItem {
+  width: 48%;
+  float: right;
+  height: 200px;
+  padding: 0;
+}
+
+.clear {
+  clear: both;
+  padding: 0;
+} */
+
+/* 
+ * flex *
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.galleryItem {
+  width: 48%;
+  height: 200px;
+  padding: 0;
+} */
+
+.gallery {
+  display: grid;
+  /* grid-template-columns: 25% 25% 25% 25%; */
+  grid-template-columns: repeat(5, 20%);
+  grid-template-rows: repeat(9, 300px);
+  gap: 5px;
+}
+
+.galleryItem {
+  padding: 0;
+  height: 100%;
+}
+
+.galleryItem img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.galleryItem:nth-child(1) {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.galleryItem:nth-child(2) {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 6;
+}
+
+.galleryItem:nth-child(3) {
+  grid-column-start: 4;
+  grid-column-end: 6;
+  grid-row-start: 1;
+  grid-row-end: 5;
+}
+
+.galleryItem:nth-child(4) {
+  grid-column-start: 4;
+  grid-column-end: 6;
+  grid-row-start: 5;
+  grid-row-end: 7;
+}

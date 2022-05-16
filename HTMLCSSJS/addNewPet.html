@@ -1,0 +1,176 @@
+<!-- Doctype z HTML5 (uproszczony) -->
+<!-- Znacznik określający typ dokumentu (dla przeglądarki/parsera) -->
+<!DOCTYPE html>
+<!-- 
+    znaczniki (tagi) HTML - głównie parzyste
+    tzn <nazwa_znacznika>zawartosc</nazwa_znacznika> 
+-->
+<html lang="en">
+  <!-- head - sekcja "niewidoczna" -->
+  <!-- odpowiada za konfigurację np. kodowanie, połączone style CSS, podpięte biblioteki JS, podpięte fonty (CSS), tagi meta -->
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Opis strony na max. 160-180 znaków" />
+    <title>Tytuł podstrony</title>
+    <style>
+      /* render css */
+    </style>
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="stylesheet" href="./styles//newPetSpinner.css" />
+  </head>
+
+  <body>
+    <div class="spinnerContainer">
+      <div class="spinner">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+      </div>
+    </div>
+    <header>
+      <div class="logo">
+        <img src="" alt="" />
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <a href="index.html">Main</a>
+          </li>
+          <li>
+            <a href="hobby.html">Hobby</a>
+          </li>
+          <li>
+            <a href="kontakt.html">Kontakt</a>
+          </li>
+          <li>
+            <a href="omnie.html">O mnie</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="hero">
+        <img src="./img/hero-medium.jpg" alt="Hero" />
+        <h1>Kontakt</h1>
+      </div>
+
+      <article>
+        <form action="#" method="POST" id="addNewPet">
+          <!-- 
+            {
+              "id": 0, <- generuje
+              "category": { <- select
+                "id": 0,
+                "name": "string"
+              },
+              "name": "doggie", <- text input
+              "photoUrls": [ <- url input
+                "string"
+              ],
+              "tags": [ <- text input
+                {
+                  "id": 0,
+                  "name": "string"
+                }
+              ],
+              "status": "available" <- select
+            }
+          -->
+          <label for="name">
+            <span class="labelText">
+              Model<span class="requiredStar">*</span>:
+            </span>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Your model"
+              required
+            />
+          </label>
+
+          <label for="category">
+            <span>Car category<span class="requiredStar">*</span>: </span>
+            <select id="category" name="category" required>
+              <option value="Small">Small</option>
+              <option value="Medium">Medium</option>
+              <option value="Large">Large</option>
+              <option value="Estate">Estate</option>
+              <option value="Premium">Premium</option>
+              <option value="SUVs">SUVs</option>
+              
+            </select>
+          </label>
+
+          <label for="status">
+            <span>Car status<span class="requiredStar">*</span>: </span>
+            <select id="status" name="status" required>
+              <option value="available">Buy</option>
+              <option value="pending">Rent</option>
+              <option value="sold">Sell</option>
+            </select>
+          </label>
+
+          <label for="photoUrl">
+            <span class="labelText">Car photo URL:</span>
+            <div class="inputsButtonsContainer">
+              <div class="flexContainer">
+                <input
+                  type="text"
+                  name="photoUrl"
+                  id="photoUrl"
+                  placeholder="https://...."
+                />
+                <button
+                  class="extraFormField"
+                  id="newPetPhotoUrlInputButton"
+                  type="button"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+          </label>
+
+          <label for="newPetTagInput">
+            <span class="labelText">Tags:</span>
+            <div class="inputsButtonsContainer">
+              <div class="flexContainer">
+                <input
+                  type="text"
+                  name="newPetTagInput"
+                  id="newPetTagInput"
+                  placeholder="e.g Lagotto romagnolo"
+                />
+                <button
+                  class="extraFormField"
+                  id="newPetTagInputButton"
+                  type="button"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+          </label>
+          <div class="buttons">
+            <input type="submit" value="Dodaj" />
+            <input type="reset" value="Resetuj" />
+          </div>
+        </form>
+      </article>
+    </main>
+    <footer>
+      <p>Copyright</p>
+    </footer>
+    <script src="./scripts/1205/script.js"></script>
+  </body>
+</html>
