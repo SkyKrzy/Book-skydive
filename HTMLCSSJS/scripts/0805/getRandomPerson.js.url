@@ -1,2 +1,143 @@
-[InternetShortcut]
-URL=https://gitlab.com/jbuskiewicz/frontend/-/blob/javascript-0805/htmlcssjs/scripts/0805/getRandomPerson.js
+// import { faker } from "@faker-js/faker";
+console.clear();
+
+// Cwiczenie 9.5
+// - Stworz klase Person ktora bedzie zawierala dwa pola: name (string), picked (boolean)
+// - Na bazie utworzonej klasy stwórz 10 obiektow (mozemy od razu w tablicy)
+// - Napisz funkcje, ktora bedzie losowala 1 osobe z tablicy przekazanych obiektow klasy Person (Math.random)
+// [*]: Sprawdzaj czy osoba wylosowana nie ma wiekszej ilosci trafien niz pozostale. Jezeli tak - wylosuj kolejna osobe, jezeli nie - wyswietl ja
+// [**]: Spróbuj rozwiązać zadanie z * przy pomocy geterów/seterów
+// Do funkcji losujacej przekaz tablice wczesniej utworzonych obiektow
+
+// console.log(Math.random());
+// tablice 10 obiektow - mamy indeksy od 0 do 9
+class Person {
+  constructor(name, picked) {
+    this.name = name;
+    this.picked = picked;
+  }
+
+  static sayHello() {
+    console.log("Hello");
+  }
+}
+
+// Person.sayHello();
+
+// tworzymy tablice przy pomocy petli z wykorzystaniem faker.js
+// faker.name.firstName();
+
+const table = [
+  {
+    name: "Adam",
+    picked: false,
+  },
+  {
+    name: "Asia N",
+    picked: false,
+  },
+  {
+    name: "Asia W",
+    picked: false,
+  },
+  {
+    name: "Bartek",
+    picked: false,
+  },
+  {
+    name: "Grzegorz",
+    picked: false,
+  },
+  {
+    name: "Jan",
+    picked: false,
+  },
+  {
+    name: "Krzysiek",
+    picked: false,
+  },
+  {
+    name: "Marika",
+    picked: false,
+  },
+  {
+    name: "Pioter",
+    picked: false,
+  },
+  {
+    name: "Jakub:)",
+    picked: false,
+  },
+];
+// for (let i = 0; i < 10; i++) {
+//   table.push(new Person(faker.name.firstName(), false));
+// }
+
+const counter = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+const getRandomNumber = () => Math.floor(Math.random() * 10);
+
+const getRandomPersonName = (personsArray) => {
+  const randomNumber = getRandomNumber();
+  const randomPerson = personsArray[randomNumber];
+  counter[randomNumber]++;
+  if (randomPerson) return randomPerson.name;
+  return "No valid match";
+};
+
+Math.random();
+Number.isInteger();
+Array.isArray();
+// Utworz funkcje, ktora wylosuje wskazana ilosc osob np. 2 [X]
+// case1: mamy 10 osob, ale chcemy 20 [X]
+// case2: chcemy tyle osob, ile mamy w tablicy [X]
+// case3: losujemy osoby z tablicy [X]
+// case4: podana liczba jest ujemna/zmiennoprzecinkowa [X]
+// case5: losujemy bez powtórzeń [X, _, _]
+
+const pickPersons = (number, personsArray) => {
+  if (number === personsArray.length) {
+    console.log(personsArray.map((person) => person.name));
+    return;
+  }
+  if (number > 0 && Number.isInteger(number) && personsArray.length > number) {
+    for (let i = 0; i < number; i++) {
+      console.log(getRandomPersonName(personsArray));
+    }
+    return;
+  }
+
+  console.log("Please give me corect number.");
+};
+// pickPersons(3, table);
+// pickPersons(11, table);
+
+// pickPerson with Set
+// 1 rozwiazanie - Set
+
+const pickPersonsWithSet = (number, personsArray) => {
+  if (number === personsArray.length) {
+    console.log(personsArray.map((person) => person.name));
+    return;
+  }
+  if (number > 0 && Number.isInteger(number) && personsArray.length > number) {
+    const randomPeople = new Set();
+    let i = 1;
+    while (randomPeople.size < number) {
+      console.log(i);
+      i++;
+      randomPeople.add(getRandomPersonName(personsArray));
+    }
+    return Array.from(randomPeople);
+  }
+
+  console.log("Please give me corect number.");
+};
+
+// console.time();
+// console.log(pickPersonsWithSet(9, table));
+// console.timeEnd();
+// console.timeLog();
+
+// ZADANIE DOMOWE
+// 2 rozwiazanie - countery
+// 3 rozwiazanie - picked property z obiektu klasy Person

@@ -341,3 +341,4 @@ countPass([
 // 1 przebieg: el === [10, 0], passIn = 0
 // 2 przebieg: el === [3, 5], passIn = 10
 // 3 przebieg: el === [5, 8], passIn = 13
+// })

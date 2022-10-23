@@ -1,2 +1,181 @@
-[InternetShortcut]
-URL=https://gitlab.com/jbuskiewicz/frontend/-/blob/javascript-0805/htmlcssjs/scripts/0805/dom.js
+console.clear();
+// document - globalny obiekt zawierajacy cala nasza strone internetowa (caly tag <html> i jego zawartosc)
+
+// document.createElement('div') - tworzy tag <div></div> ktory mozemy np. dodac do innego kontenera
+
+// [el].appendChild([stworzonyElement]) - dodaje [stworzonyElement] jako dziecko wskazanego elementu [el]
+
+// jesli chcemy wybrac element z naszego dokumentu po id -> document.getElementById('idNaszegoElementu') => document.getElementById("hamburgerCheck");
+
+// jezeli chcemy wybrac elementy konkretnej klasy to korzystamy z document.getElementsByClassName('klasa') => document.getElementsByClassName('paragraph')
+
+// jezeli chcemy wykorzystac uniwersalny selektor to mozemy uzyc document.querySelector('.klasa') lub document.querySelector('#id')
+
+// element.classList.add('nazwaKlasy') aby dodac klase do elementu
+
+// element.classList.remove('nazwaKlasy') aby usunac klase z elementu
+
+// el.querySelector('#id').id aby pobrac wartosc atrybutu id wskazanego elementu
+
+// el.querySelector('#id').id = 'nowaWartosc' aby nadpisac wartosc 'id' wartoscia 'nowaWartosc'
+
+// Cwiczenie 1
+//  wskazany w parametrze funkcji
+// krok1: querySelector('body')
+// krok2: createElement
+// krok3: appendChild
+
+const addElementToContainer = (el, container) => {
+  const containerSelector = document.querySelector(container);
+  const newElement = document.createElement(el);
+  containerSelector.appendChild(newElement);
+};
+
+// Cwiczenie 2
+// Utworz klase MyElement w ktorej zawrzesz 3 pola: type, id, class
+// Na podstawie tej zmiany zmodyfikuj funkcje w ktorej dodajesz element do DOM
+// Dodaj element div o klasie 'mainContainer' i id 'main' do elementu body
+
+class MyElementProps {
+  constructor(htmlType, innerText, style, placeholder, value) {
+    this.htmlType = htmlType;
+    this.innerText = innerText;
+    this.style = style;
+    this.placeholder = placeholder;
+    this.value = value;
+  }
+}
+
+class MyElement {
+  constructor(
+    type,
+    id,
+    classNamesArray,
+    htmlType,
+    innerText,
+    style,
+    placeholder,
+    value
+  ) {
+    this.type = type;
+    this.id = id;
+    this.classNamesArray = classNamesArray;
+    this.props = new MyElementProps(
+      htmlType,
+      innerText,
+      style,
+      placeholder,
+      value
+    );
+  }
+}
+
+const mainDiv = new MyElement("div", "main", ["mainContainer"]);
+const divElements = [
+  new MyElement("div", "div1", ["box", "box1"], null, "0"),
+  new MyElement("div", "div2", ["box", "box2"], null, "0"),
+  new MyElement("div", "div3", ["box", "box3"], null, "0"),
+  new MyElement("div", "div4", ["box", "box4"], null, "0"),
+  new MyElement("div", "div5", ["box", "box5"], null, "0"),
+  new MyElement("div", "div6", ["box", "box6"], null, "0"),
+  new MyElement("div", "div7", ["box", "box7"], null, "0"),
+  new MyElement("div", "div8", ["box", "box8"], null, "0"),
+  new MyElement("div", "div9", ["box", "box9"], null, "0"),
+];
+
+const form = new MyElement("form", "mainForm", null);
+const nameInput = new MyElement(
+  "input",
+  "nameInput",
+  "",
+  "text",
+  "",
+  "",
+  "Podaj imie"
+);
+const submitButton = new MyElement(
+  "input",
+  "submitButton",
+  "",
+  "submit",
+  "",
+  "",
+  "",
+  "Submit"
+);
+
+const enhanceMyElementWithProps = (el, props) => {
+  if (props.htmlType) el.type = props.htmlType;
+  if (props.innerText) el.innerText = props.innerText;
+  if (props.style) el.style = props.style;
+  if (props.placeholder) el.placeholder = props.placeholder;
+  if (props.value) el.value = props.value;
+  return el;
+};
+
+const addMyElementToContainer = (el, container) => {
+  const containerSelector = document.querySelector(container);
+  const myNewElement = document.createElement(el.type);
+  if (el.id !== "") myNewElement.id = el.id;
+  if (el.classNamesArray && el.classNamesArray.length) {
+    el.classNamesArray.forEach((className) => {
+      myNewElement.classList.add(className);
+    });
+  }
+  containerSelector.appendChild(
+    enhanceMyElementWithProps(myNewElement, el.props)
+  );
+};
+
+// Cwiczenie 3
+// Utworz nowa klase MyElementProps, w ktorej odczytasz: type, innerText, style, placeholder oraz value
+// Wykorzystaj nowa klase do tworzenia elementow w klasie MyElement (kompozycja)
+// Utworz prosty formularz z jednym inputem i buttonem
+
+addMyElementToContainer(mainDiv, "body");
+// addMyElementToContainer(form, "#main");
+// addMyElementToContainer(nameInput, "#mainForm");
+// addMyElementToContainer(submitButton, "#mainForm");
+
+// Eventy - zdarzenia
+// 1. Wybieramy kontener, na którym chcemy "nasłuchiwać" na event
+// 2. Z kontenera wywołujemy metodę "addEventListener"
+// 3. Do metody "addEventListener" przekazujemy dwa parametry: typ eventu, callback
+
+// // click
+// document.querySelector("body").addEventListener("click", (event) => {
+//   const element = document.getElementById(event.target.id);
+//   const counter = 1;
+//   if (element.innerText === "") {
+//     element.innerText = counter;
+//   } else {
+//     element.innerText = ++element.innerText;
+//   }
+// });
+
+// Cwiczenie 4
+// event.target zawiera informacje na temat elementu, ktory zostal klikniety (w przypadku click event)
+
+// Zmodyfikuj funkcje dodajac element do wybranego kontenera w taki sposob, aby przyjmowala tablice klas
+// Utworz kontener, ktory bedzie zawierał 9 tagów div, kazdy z innym id/klasą
+// klasa box ustawi nam wysokosc i szerokosc na 100px,
+// klasa box[number] bedzie sterować background-color
+// <div id="div1" class="box box1">0</div>
+// <div id="div2" class="box box2">0</div>
+
+// do kontenera ktory zawiera 9 boxów dodaj event listener na click
+// w callbacku wyloguj id elementu, ktory zostal klikniety
+// [*]: policz, ile razy element zostal klikniety (modyfikujemy innerText)
+
+divElements.forEach((divElement) => {
+  addMyElementToContainer(divElement, "#main");
+});
+
+document.querySelector("#main").addEventListener("click", (event) => {
+  if (event.target.id !== "main") {
+    console.log(event.target.id);
+    let text = document.getElementById(event.target.id).innerText;
+    document.getElementById(event.target.id).innerText = ++text;
+  }
+});
+

@@ -36,7 +36,7 @@ Promise.allSettled([
     })
     .then((daneZwracaneZToDosZBackendu) => {
       apState = { ...apState, todos: [...daneZwracaneZToDosZBackendu] };
-    })
+    }),
 ]).then(() => {
   // mamy pewnosc ze oba zapytania zostaly przetworzone
   apState = {
@@ -48,8 +48,8 @@ Promise.allSettled([
         } else {
           return { ...todo };
         }
-      })
-    ]
+      }),
+    ],
   };
 
   let nowaTablica = [];
@@ -59,7 +59,7 @@ Promise.allSettled([
       ...apState.users[i],
       todos: apState.todos.filter((todo) => {
         return todo.userId === apState.users[i].id;
-      })
+      }),
     });
   }
   // console.log(nowaTablica);
@@ -84,7 +84,7 @@ Promise.allSettled([
   const nowaTablica2 = nowaTablica.map((user, id) => {
     return {
       ...user,
-      sum: user.todos.reduce(calcTodos, calcTodosInitialValue)
+      sum: user.todos.reduce(calcTodos, calcTodosInitialValue),
     };
   });
   apState = { ...apState, users: [...nowaTablica2] };

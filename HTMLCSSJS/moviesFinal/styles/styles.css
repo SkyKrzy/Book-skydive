@@ -1,0 +1,138 @@
+@font-face {
+    font-family: myFont;
+    src: url("../assets/sansation_light.woff");
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --primary-color: #22254b;
+    --secondary-color: #373b69;
+  }
+  
+  body {
+    background-color: var(--primary-color);
+    margin: 0;
+    font-family: myFont;
+    font-size: 20px;
+  }
+  
+  header {
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--secondary-color);
+  }
+  
+  main {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+  
+  .movie {
+    width: 300px;
+    margin: 1rem;
+    background-color: var(--secondary-color);
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+  
+  .movie img {
+    width: 100%;
+  }
+  
+  .movie-info {
+    color: #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    letter-spacing: 0.5px;
+    gap: 0.2rem;
+  }
+  
+  .overview {
+    position: absolute;
+    background-color: #fff;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow-y: auto;
+    transform: translateY(101%);
+    transition: 0.3s ease-in-out;
+    color: var(--primary-color);
+    padding: 1rem 2.5rem;
+    font-size: 14px;
+  }
+  
+  .overview.active {
+    transform: translatey(0);
+  }
+  
+  .movie-info h3 {
+    margin-top: 0;
+  }
+  
+  .movie-info > span.green {
+    color: lightgreen;
+  }
+  
+  .movie-info > span.orange {
+    color: orange;
+  }
+  
+  .movie-info > span.red {
+    color: red;
+  }
+  
+  .movie-info span {
+    background-color: var(--primary-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    font-weight: bold;
+  }
+  
+  /* header > input[type=text]  */
+  header .search {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    border-radius: 50px;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    color: #fff;
+  }
+  
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  
+  .search:focus {
+    outline: none;
+    background-color: var(--primary-color);
+  }
+  
+  .search::placeholder {
+    color: #7378c5;
+  }
+  
+  .fakeimg {
+    width: 100%;
+    height: 450px;
+    background-color: #ccc;
+    font-weight: bold;
+    font-size: 15px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
