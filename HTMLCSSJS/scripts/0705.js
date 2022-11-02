@@ -449,20 +449,38 @@ for (let i = 1; i <= 10; i++) {
 
 // then zostanie wywolany jak wszystkie promises zostana skonsumowane,
 // catch zostanie wywolany jak jakikolwiek promise zostanie odrzucony
-// Promise.all(promises)
-//   .then(() => console.log(appState))
-//   .catch(console.error);
+
+/** 07.05
+ * if, funkcje, callbacki, promises, async/await, klasy, obiekty, tablice, petle
+fetch - wysylanie danych, metody komunikacji z API (GET, POST, PUT, PATCH, DELETE)
+
+const test = [
+    new Promise((resolve, reject) => {}),
+    new Promise((resolve, reject) => {}),
+    new Promise((resolve, reject) => {})
+  ];
+  console.log(test);
+  Promise.all([]);
+ */
+
+/** 08.05 */
 
 // Cwiczenie 9
 // Sprawdz czy w tablicy "orders" wystepuja zwierzaki z tablicy "pets" obiektu "appState"
+// console.log(new Set(appState.orders.filter((order) => order.petId !== undefined).map((order) => order.petId)));
+// bierzemy idki z tablicy pets [X]
+// bierzemy idki z tablicy orders [X]
+// iterujac przez tablice pets sprawdzamy czy dany id jest w tablicy idków orderów
 
-// if, funkcje, callbacki, promises, async/await, klasy, obiekty, tablice, petle
-// fetch - wysylanie danych, metody komunikacji z API (GET, POST, PUT, PATCH, DELETE)
+const ex9 = () => {
+  console.log(appState);
+  const petsIds = appState.pets.map((pet) => pet.id);
+  const petsIdsFromOrders = appState.orders.map((order) => order.petId);
+  // petla po petsIds
 
-const test = [
-  new Promise((resolve, reject) => {}),
-  new Promise((resolve, reject) => {}),
-  new Promise((resolve, reject) => {}),
-];
-// console.log(test);
-// Promise.all([]);
+  for (const petId of petsIds) {
+    console.log(petsIdsFromOrders.includes(petId), petId);
+  }
+};
+
+//

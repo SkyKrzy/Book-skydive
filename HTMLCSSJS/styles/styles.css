@@ -12,6 +12,8 @@
   --teal-dark-3: #d8b08c;
   --teal-dark-4: #ffcb9a;
   --teal-dark-5: #d2e8e3;
+  --line-border-fill: #0f6466;
+  --line-border-empty: #e0e0e0;
   --checkbox: #4285f4;
 }
 
@@ -242,7 +244,7 @@ form {
 
 form label {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 20px;
   position: relative;
 }
@@ -258,6 +260,8 @@ form input[type="text"],
 form input[type="number"],
 form input[type="date"],
 form input[type="email"],
+form input[type="url"],
+form input[type="password"],
 form select {
   padding: 4px 10px;
   min-width: 200px;
@@ -409,18 +413,304 @@ label span.caption.active {
   font-weight: bold;
   border: none;
   border-radius: 4px;
-  color: red;
-  background-color: burlywood;
+  color: darkblue;
+  background-color: cornsilk;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  transition: .3s transform ;
+  transition: 0.3s transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.extraFormFieldRemove {
+  background-color: tomato;
+  color: whitesmoke;
+}
+
+.extraFormField:hover {
+  cursor: pointer;
 }
 
 .extraFormField:active {
-  transform: scale(0.95)
+  transform: scale(0.95);
 }
 
-/* newsletter */
+.flexContainer {
+  display: flex;
+  align-items: center;
+}
 
+.flexContainer:not(:first-child) {
+  margin-top: 10px;
+}
+
+.toastNotification {
+  position: absolute;
+  width: 300px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 16px;
+  top: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.toastNotification.success {
+  background-color: rgb(0, 102, 48);
+  color: white;
+}
+
+.toastNotification.error {
+  background-color: crimson;
+  color: #d2e8e3;
+}
+
+.modalContainer {
+  position: fixed;
+  background-color: rgba(26, 26, 26, 0.7);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  visibility: hidden;
+  transition: 0.3s ease;
+}
+
+.modal {
+  width: 650px;
+  height: 250px;
+  background-color: #d2e8e3;
+  border-radius: 4px;
+  position: relative;
+  transition: 0.3s ease;
+  transform: translateY(-400%);
+}
+
+.modal.visible {
+  transform: translateY(0);
+}
+
+#accessModalContainer .modal {
+  width: 550px;
+  height: 390px;
+}
+
+.modal__header {
+  display: flex;
+  /* padding: 20px; */
+  justify-content: space-between;
+  position: relative;
+}
+
+.modal__header p {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.modal__content {
+  display: flex;
+  padding: 10px 20px;
+  flex-direction: column;
+  text-align: center;
+  font-size: 18px;
+  height: 100%;
+  justify-content: center;
+}
+
+.modal__content form {
+  margin-top: 20px;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+
+.modal__content form input[type="email"],
+.modal__content form input[type="password"],
+.modal__content form input[type="text"] {
+  width: 60%;
+  border: 1px solid var(--teal-dark-1);
+  padding: 8px;
+  margin-right: 14px;
+}
+
+.modal__content form input[type="submit"] {
+  padding: 15px 35px;
+  font-size: 16px;
+  background-color: var(--checkbox);
+  color: #fff;
+  font-weight: 700;
+}
+
+#accessModalContainer .modal__content form input {
+  margin-right: 0;
+}
+
+.accessModalIcon {
+  cursor: pointer;
+  transform: scale(2); /* to be fixed */
+}
+
+.modal__content form input[type="email"]::placeholder,
+.modal__content form input[type="password"]::placeholder,
+.modal__content form input[type="text"]::placeholder {
+  font-size: 18px;
+}
+
+.modal__content form input[type="submit"] {
+  border-radius: 4px;
+}
+
+.closeIcon {
+  display: flex;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+
+.content__switcher {
+  display: flex;
+  position: absolute;
+  bottom: 94%;
+  background-color: var(--teal-dark-5);
+  width: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.switchContent form {
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.content__switcher div {
+  padding: 10px;
+  border: 1px solid var(--teal-dark-3);
+  margin: 3px;
+  cursor: pointer;
+  width: 50%;
+  background-color: var(--teal-dark-4);
+  transition: 0.3s all;
+}
+
+.content__switcher div:first-child {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.content__switcher div:not(:first-child) {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.content__switcher div.active {
+  font-weight: bold;
+}
+
+.content__content > div:not(:first-child) {
+  display: none;
+}
+
+.btn {
+  background-color: var(--teal-dark-4);
+  color: var(--teal-dark-1);
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 15px 45px;
+  margin: 5px;
+  font-size: 14px;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  background-color: lightgray;
+  color: darkgray;
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.progress {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  background-color: var(--line-border-fill);
+  height: 4px;
+  z-index: -1;
+  transition: 0.4s ease;
+  width: 0%;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  width: 350px;
+  max-width: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.progress-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 4px;
+  background-color: var(--line-border-empty);
+  width: 100%;
+  z-index: -1;
+}
+
+.circle {
+  background-color: #fff;
+  color: #555;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--line-border-empty);
+  transition: 0.4s ease;
+}
+
+.circle.active {
+  border-color: var(--line-border-fill);
+}
+
+.container {
+  text-align: center;
+  position: relative;
+}
+
+div.stepContent {
+  height: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.stepperContent > div.stepContent:not(:first-child) {
+  display: none;
+}
 
 @media screen and (min-width: 769px) {
   label[for="hamburgerCheck"] {
@@ -539,17 +829,6 @@ label span.caption.active {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
 /* sposoby umieszczania CSS na stronie */
 /* jednostki */
 
@@ -558,4 +837,4 @@ label span.caption.active {
 
 /* 1em - 16px (w moim przypadku, odczytywane z ustawien przegladarki) */
 /* rem - jednostka wskazuje na font-size ustawiony na elemencie <html> */
-/* Bordered form */
+
