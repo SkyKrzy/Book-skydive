@@ -156,7 +156,10 @@ header nav ul li a:active {
 header nav ul li a:focus-visible {
   outline: 1px dashed var(--teal-dark-5);
 }
-
+.img {
+  width: 80px;
+  height: 80px;
+}
 .logo {
   width: 80px;
   height: 80px;
@@ -192,6 +195,7 @@ header nav ul li a:focus-visible {
 
 header,
 footer {
+  height: 130px;
   background-color: var(--teal-dark-1);
 }
 
@@ -276,16 +280,20 @@ input[type="checkbox"] {
   opacity: 0;
 }
 
-label[for="carRent"],
-label[for="airportTransport"] {
+label[for="withoutCam"],
+label[for="Pro"],
+label[for="Premium"],
+label[for="Selfie"] {
   display: inline-block;
   padding-left: 35px;
   cursor: pointer;
   position: relative;
 }
 
-label[for="carRent"]::before,
-label[for="airportTransport"]::before {
+label[for="withoutCam"]::before,
+label[for="Selfie"]::before,
+label[for="Pro"]::before,
+label[for="Premium"]::before {
   content: "";
   position: absolute;
   top: 0;

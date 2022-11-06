@@ -13,76 +13,162 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Opis strony na max. 160-180 znaków" />
-    <title>Frontend</title>
+    <title>Tytuł podstrony</title>
     <!-- js i css -->
-    <!-- jezeli korzystamy z reset CSS to dodajemy go jako pierwszy ---> 
-    <link rel="stylesheet" href="./styles/slider.css" /> 
+    <!-- jezeli korzystamy z reset CSS to dodajemy go jako pierwszy -->
+    <link rel="stylesheet" href="./styles/slider.css" />
     <link rel="stylesheet" href="./styles/styles.css" />
-    <link rel="stylesheet" href="./styles/styles1.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous"  />
-  </head> 
+  </head>
 
   <body>
-    
-    
-    <div class="modal-container" id="modal-container">
-      <div class="modal" id="modal"></div>
-      <button class="close-btn" id="close"><i class="fa fa-items"></i></button>
-      <div class="header">
-        <h2 class="logo">Zapisz sie na newsletter</h2>
-        <p class="tagline">Something big.</p>
-        <p>lorem</p>
-      </div> 
-      <form>
-        <input type="text" placeholder="Wprowadz email żeby dostać 10% zniżki">
-        <button class="Subscribe">subscribe</button>
-      </form>
-      <div class="Social-media">
-        <i class="fab fa-instagram"></i>
-        <i class="fab fa-twitter"></i>
-        <i class="fab fa-behance"></i>
-        <i class="fab fa-google-plus-g"></i>
+    <!-- 1405 - Cwiczenie 1 - Modal -->
+    <div class="modalContainer" id="newsletterModal">
+      <!-- display: flex, position: fixed -->
+      <div class="modal">
+        <!-- display: flex -->
+        <div class="modal__header">
+          <!-- <p>Newsletter</p> -->
+          <span class="closeIcon">
+            <svg
+              fill="#000000"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24px"
+              height="24px"
+            >
+              <path
+                d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="modal__content">
+          <p>
+            Zapisz się do newslettera i otrzymaj <strong>10% zniżki</strong> na
+            pierwsze zakupy 😊
+          </p>
+
+          <form action="#">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="jan.kowalski@wp.pl"
+              required
+            />
+            <input type="submit" value="Zapisz się" />
+          </form>
+        </div>
       </div>
     </div>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="scripts/1405/script.js"></script>
+    <!-- Cwiczenie 1 - KONIEC -->
 
-        
-    <div class="bg" aria-hidden="true">
-    <div class="bg__dot"></div>
-    <div class="bg__dot"></div>
-</div>
-<form class="form" autocomplete="off">
-    <div class="form__icon" aria-hidden="true"></div>
-    <div class="form__input-container">
-        <input
-            aria-label="User"
-            class="form__input"
-            type="text"
-            id="user"
-            placeholder=" "
-        />
-        <label class="form__input-label" for="user">Name</label>
+    <!-- Cwiczenie 6 - Access Modal -->
+    <div class="modalContainer" id="accessModalContainer">
+      <div class="modal">
+        <div class="modal__header">
+          <span class="closeIcon">
+            <svg
+              fill="#000000"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24px"
+              height="24px"
+            >
+              <path
+                d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="modal__content">
+          <div class="content__switcher">
+            <div id="tab1" class="switchButton active">Login</div>
+            <div id="tab2" class="switchButton">Register</div>
+          </div>
+          <div class="content__content">
+            <div data-id="tab1" class="switchContent">
+              <form>
+                <input
+                  type="email"
+                  name="email"
+                  id="loginEmail"
+                  placeholder="email address"
+                  required
+                />
+                <br />
+                <input
+                  type="password"
+                  name="password"
+                  id="loginPassword"
+                  placeholder="strong pwd"
+                  autocomplete="false"
+                  required
+                />
+                <br />
+                <input type="submit" value="Login" />
+              </form>
+            </div>
+            <div data-id="tab2" class="switchContent">
+              <div class="container">
+                <div class="progress-container">
+                  <div class="progress" id="progress"></div>
+                  <div class="circle active">1</div>
+                  <div class="circle">2</div>
+                </div>
+
+                <div class="stepperContent">
+                  <div class="stepContent" id="step1">
+                    <form id="step1form">
+                      <input
+                        type="text"
+                        name="text"
+                        id="step1firstname"
+                        placeholder="first name"
+                      />
+                      <br />
+                      <input
+                        type="text"
+                        name="text"
+                        id="step1lastname"
+                        placeholder="last name"
+                      />
+                    </form>
+                  </div>
+                  <div class="stepContent" id="step2">
+                    <form>
+                      <input
+                        type="email"
+                        name="email"
+                        id="step2email"
+                        placeholder="Your email"
+                      />
+                      <br />
+                      <input
+                        type="password"
+                        name="password"
+                        id="step2password"
+                        placeholder="password"
+                        autocomplete="false"
+                      />
+                      <br />
+                      <input type="submit" value="Register" />
+                    </form>
+                  </div>
+                </div>
+
+                <button class="btn" id="prev" disabled>Prev</button>
+                <button class="btn" id="next">Next</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="form__input-container">
-        <input
-            aria-label="Password"
-            class="form__input"
-            type="password"
-            id="password"
-            placeholder=" "
-        />
-        <label class="form__input-label" for="password">Password</label>
-    </div>
-    <div class="form__spacer" aria-hidden="true"></div>
-    <button class="form__button">Log in</button>
-</form>
-  </body>
-  </head>
-    
+    <!-- Cwiczenie 6 - Access Modal - KONIEC -->
     <header>
       <div class="logo">
-        <!-- <img src="" alt="" /> -->
+        <img src="./img/logo1.png" width="80px" height="80px" />
       </div>
       <input type="checkbox" name="hamburgerCheck" id="hamburgerCheck" />
       <label for="hamburgerCheck">
@@ -99,13 +185,26 @@
             <a href="hobby.html">Hobby</a>
           </li>
           <li>
-            <a href="kontakt.html">Kontakt</a>
+            <a href="Zarezerwuj.html">Rezerwacja</a>
           </li>
           <li>
             <a href="omnie.html">O mnie</a>
           </li>
         </ul>
       </nav>
+      <div class="accessModalIcon">
+        <svg
+          width="16px"
+          height="16px"
+          viewBox="0 0 16 16"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="#ffffff"
+        >
+          <path
+            d="M16 7.992C16 3.58 12.416 0 8 0S0 3.58 0 7.992c0 2.43 1.104 4.62 2.832 6.09.016.016.032.016.032.032.144.112.288.224.448.336.08.048.144.111.224.175A7.98 7.98 0 0 0 8.016 16a7.98 7.98 0 0 0 4.48-1.375c.08-.048.144-.111.224-.16.144-.111.304-.223.448-.335.016-.016.032-.016.032-.032 1.696-1.487 2.8-3.676 2.8-6.106zm-8 7.001c-1.504 0-2.88-.48-4.016-1.279.016-.128.048-.255.08-.383a4.17 4.17 0 0 1 .416-.991c.176-.304.384-.576.64-.816.24-.24.528-.463.816-.639.304-.176.624-.304.976-.4A4.15 4.15 0 0 1 8 10.342a4.185 4.185 0 0 1 2.928 1.166c.368.368.656.8.864 1.295.112.288.192.592.24.911A7.03 7.03 0 0 1 8 14.993zm-2.448-7.4a2.49 2.49 0 0 1-.208-1.024c0-.351.064-.703.208-1.023.144-.32.336-.607.576-.847.24-.24.528-.431.848-.575.32-.144.672-.208 1.024-.208.368 0 .704.064 1.024.208.32.144.608.336.848.575.24.24.432.528.576.847.144.32.208.672.208 1.023 0 .368-.064.704-.208 1.023a2.84 2.84 0 0 1-.576.848 2.84 2.84 0 0 1-.848.575 2.715 2.715 0 0 1-2.064 0 2.84 2.84 0 0 1-.848-.575 2.526 2.526 0 0 1-.56-.848zm7.424 5.306c0-.032-.016-.048-.016-.08a5.22 5.22 0 0 0-.688-1.406 4.883 4.883 0 0 0-1.088-1.135 5.207 5.207 0 0 0-1.04-.608 2.82 2.82 0 0 0 .464-.383 4.2 4.2 0 0 0 .624-.784 3.624 3.624 0 0 0 .528-1.934 3.71 3.71 0 0 0-.288-1.47 3.799 3.799 0 0 0-.816-1.199 3.845 3.845 0 0 0-1.2-.8 3.72 3.72 0 0 0-1.472-.287 3.72 3.72 0 0 0-1.472.288 3.631 3.631 0 0 0-1.2.815 3.84 3.84 0 0 0-.8 1.199 3.71 3.71 0 0 0-.288 1.47c0 .352.048.688.144 1.007.096.336.224.64.4.927.16.288.384.544.624.784.144.144.304.271.48.383a5.12 5.12 0 0 0-1.04.624c-.416.32-.784.703-1.088 1.119a4.999 4.999 0 0 0-.688 1.406c-.016.032-.016.064-.016.08C1.776 11.636.992 9.91.992 7.992.992 4.14 4.144.991 8 .991s7.008 3.149 7.008 7.001a6.96 6.96 0 0 1-2.032 4.907z"
+          />
+        </svg>
+      </div>
     </header>
 
     <main>
@@ -129,7 +228,17 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, minus
             magnam. Molestiae mollitia error inventore! Quisquam laboriosam
             error aliquid ipsa earum praesentium rerum maxime accusantium libero
-            dolore harum, eum excepturi! 
+            dolore harum, eum excepturi! Obcaecati quae maxime, a ducimus
+            doloremque cum tempora ratione, laboriosam iusto molestiae officia
+            sapiente, rem nam dicta consequuntur aut velit totam. Repellendus
+            nisi consequatur similique ea, praesentium magni harum voluptatibus?
+            Exercitationem nulla magni natus est dolorem quas voluptatum, hic
+            fugiat obcaecati illum, dolorum minus aliquid quo sunt dicta quam
+            corrupti iusto similique enim ducimus sit iste! A eligendi explicabo
+            doloribus. Quasi iure voluptatem a ipsam enim rem ea exercitationem,
+            labore est veritatis. Molestiae earum facilis voluptates repellendus
+            doloribus, perferendis a sunt temporibus laborum, aperiam iure fugit
+            eum sed, esse maxime.
           </p>
           <img class="mainImage" src="./img/baloons-small.jpg" alt="Baloons" />
         </div>
@@ -153,8 +262,7 @@
       <p>Copyright</p>
     </footer>
     <!-- <script src="./scripts/script.js"></script> -->
-    <!--<script src="./scripts/superheroes.js"></script> -->
-      <script scr="./scripts/1405/styles.css"></script>
-      <script scr="C:\Users\krzyc\HTMLCSSJS\scripts\1205\main.js"></script>
+    <!-- <script src="./scripts/superheroes.js"></script> -->
+    <script src="./scripts/1405/script.js"></script>
   </body>
 </html>

@@ -13,17 +13,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Opis strony na max. 160-180 znaków" />
-    <title>Tytuł podstrony</title>
-    <style>
-      /* render css */
-    </style>
+    <title>Rezerwacja</title>
     <link rel="stylesheet" href="./styles/styles.css" />
   </head>
 
   <body>
     <header>
       <div class="logo">
-        <img src="logo1.png" alt="" />
+        <img src="./img/logo1.png" width="80px" height="80px" />
       </div>
       <nav>
         <ul>
@@ -34,7 +31,7 @@
             <a href="hobby.html">Hobby</a>
           </li>
           <li>
-            <a href="kontakt.html">Kontakt</a>
+            <a href="Zarezerwuj.html">Rezerwacja</a>
           </li>
           <li>
             <a href="omnie.html">O mnie</a>
@@ -46,7 +43,6 @@
     <main>
       <div class="hero">
         <img src="./img/hero-medium.jpg" alt="Hero" />
-        <h1>Kontakt</h1>
       </div>
 
       <article>
@@ -112,13 +108,16 @@
 
           <!-- select - dropdown -->
           <label for="destination">
-            <span>Kierunek:</span>
+            <span>Strefa spadochronowa:</span>
             <select name="destination" id="destination">
               <option selected disabled>-</option>
-              <option value="thai">Tajlandia</option>
-              <option value="jap">Japonia</option>
-              <option value="usa">USA</option>
-              <option value="malediwy">Malediwy</option>
+              <option value="pruszcz">Aeroklub Gdański</option>
+              <option value="wawa">Aeroklub Warszawski</option>
+              <option value="Biały">Aeroklub Białostocka</option>
+              <option value="Elbląg">Baltic-Elbląg</option>
+              <option value="silesia">Silesia</option>
+              <option value="Krk">Skoczek-Kraków</option>
+              <option value="SkyForce">SkyForce-Piotrków Trybunalski</option>
             </select>
           </label>
 
@@ -146,33 +145,42 @@
             />
           </label>
           <div>
-            <input type="checkbox" name="carRent" id="carRent" />
-            <label for="carRent">
-              <span>Wypożyczam auto na miejscu</span>
+            <input type="checkbox" name="withoutCam" id="withoutCam" />
+            <label for="withoutCam">
+              <span>Bez nagrywania</span>
             </label>
 
-            <input
-              type="checkbox"
-              name="airportTransport"
-              id="airportTransport"
-            />
-            <label for="airportTransport">
-              <span>Transfer z lotniska</span>
+            <input type="checkbox" name="Selfie" id="Selfie" />
+            <label for="Selfie">
+              <span>Selfie-950 zł</span>
+            </label>
+
+            <input type="checkbox" name="Pro" id="Pro" />
+            <label for="Pro">
+              <span>Pro-1050 zł</span>
+            </label>
+
+            <input type="checkbox" name="Premium" id="Premium" />
+            <label for="Premium">
+              <span>Premium-1550 zł</span>
             </label>
           </div>
 
           <div class="rangeGroup">
-            <label for="withInsurance">
-              <span>Ubezpieczenie podróży</span>
-              <input type="radio" name="insurance" id="withInsurance" checked />
+            <label for="vocherElectro">
+              <span>Voucher elektroniczny</span>
+              <input type="radio" name="voucher" id="vocherElectro" checked />
             </label>
 
-            <label for="withoutInsurance">
-              <span>Bez ubezpieczenia</span>
-              <input type="radio" name="insurance" id="withoutInsurance" />
+            <label for="voucherherGift">
+              <span>Voucher prezentowy</span>
+              <input type="radio" name="voucher" id="voucherherGift" chacked/>
             </label>
           </div>
-
+          <h5>
+            Wgraj voucher jeśli już posiadasz, a chcesz tylko zarezerwować
+            termin.
+          </h5>
           <input
             type="file"
             name="file"
@@ -197,16 +205,27 @@
       </article>
       <div>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam,
-          rerum quod incidunt laborum excepturi amet ullam nemo consectetur,
-          tempore cumque nostrum officia dolorum maxime sapiente voluptates
-          quibusdam aliquid recusandae exercitationem!
+          Voucher na skok ze spadochronem w tandemie z doświadczonym
+          instruktorem. Niezapomniane przeżycie i solidna dawka adrenaliny
+          dostępna dla każdego. Wybierz opcję z filmowaniem, a podczas szkolenia
+          na ziemi oraz swobodnego spadania kamerzysta spadochronowy uwieczni
+          Twój skok na filmie i zdjęciach. Otrzymasz pamiątkę, która pozwoli
+          wrócić do chwil spędzonych w powietrzu i podzielić się nimi z innymi.
+          <a href="https://www.youtube.com/watch?v=ScBrHyRXJCc&t=108s">Kliknij tutaj</a> i zobacz opcję z filmowaniem.
         </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
-          eum labore in consequatur similique magni, commodi voluptatem amet
-          nostrum repellendus laborum culpa ad soluta doloribus voluptatibus est
-          iure incidunt totam.
+        
+        <p>Wysokość: 4000 m</p>
+        <p>Czas swobodnego spadania: ok 50 sekund</p>
+        <p>Czas lotu z otwartą czaszą spadochronu: ok 5-7 min</p>
+        <p>Czas lotu samolotem: ok 15 min</p>
+        <p>Maksymalna dopuszczalna waga uczestnika: 105 kg</p>
+        <p>Minimalny wzrost uczestnika: 140 cm</p>
+        <p>Wiek uczestnika: wymagana pisemna zgoda obojga rodziców lub opiekunów prawnych dla uczestników poniżej 18 roku życia.</p>
+        <p>Ważność vouchera: 12 miesięcy</p>
+        <p>Terminy realizacji vouchera: od kwietnia do października w piątki, soboty, niedziele, długie weekendy oraz niektóre dni świąteczne.
+        </p>
+        <p>Przeciwskazania: Choroby serca, padaczka i inne poważne dolegliwości. Jeśli masz wątpliwości, co do swojego stanu zdrowia, skonsultuj się ze swoim lekarzem.
+        </p>
         </p>
       </div>
     </main>
