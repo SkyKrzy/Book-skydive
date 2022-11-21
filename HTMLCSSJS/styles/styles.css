@@ -28,11 +28,9 @@ html {
     selektor {
         wlasnosc: wartosc;
     }
-
     p {
         color: red;
     }
-
 */
 
 /* 
@@ -40,7 +38,6 @@ html {
     1. tagi HTML (nazwa) np. p, article, div
     2. klasy np. .hero, .logo, atrybuty np. type="text"
     3. id np. #firstName, #lastName
-
     selektor specificy
     id > klasy, atrybuty > tag html
 */
@@ -48,20 +45,16 @@ html {
 /* p {
   color: rosybrown;
 }
-
 .paragraph {
   color: crimson;
 }
-
 .paragraph {
   color: chocolate;
 }
-
 .slider {
   łamanie specificy
   background-color: tomato !important;
 }
-
 #mainParagraph {
     color: var(--teal-dark-3);
 }
@@ -227,18 +220,6 @@ main p {
   color: var(--teal-dark-1);
 }
 
-.mainImage {
-  border-radius: 4px;
-  filter: hue-rotate(90deg);
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  left: 70%;
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-}
-
 form {
   display: flex;
   flex-direction: column;
@@ -285,7 +266,7 @@ label[for="Pro"],
 label[for="Premium"],
 label[for="Selfie"] {
   display: inline-block;
-  padding-left: 35px;
+  padding-left:35px;
   cursor: pointer;
   position: relative;
 }
@@ -401,7 +382,7 @@ form select.emptyInputError {
 }
 
 label span.caption {
-  font-size: 10px;
+  font-size: 20px;
   position: absolute;
   top: 50%;
   left: 22%;
@@ -830,11 +811,7 @@ div.stepContent {
     flex-direction: column-reverse;
   }
 
-  .mainImage {
-    position: static;
-    width: 100%;
-    margin-bottom: 20px;
-  }
+  
 }
 
 /* sposoby umieszczania CSS na stronie */
@@ -845,4 +822,3 @@ div.stepContent {
 
 /* 1em - 16px (w moim przypadku, odczytywane z ustawien przegladarki) */
 /* rem - jednostka wskazuje na font-size ustawiony na elemencie <html> */
-
