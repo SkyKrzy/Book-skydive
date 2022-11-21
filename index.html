@@ -1,0 +1,308 @@
+<!-- Doctype z HTML5 (uproszczony) -->
+<!-- Znacznik określający typ dokumentu (dla przeglądarki/parsera) -->
+<!DOCTYPE html>
+<!-- 
+    znaczniki (tagi) HTML - głównie parzyste
+    tzn <nazwa_znacznika>zawartosc</nazwa_znacznika> 
+-->
+<html lang="en">
+  <!-- head - sekcja "niewidoczna" -->
+  <!-- odpowiada za konfigurację np. kodowanie, połączone style CSS, podpięte biblioteki JS, podpięte fonty (CSS), tagi meta -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Opis strony na max. 160-180 znaków" />
+    <title>Strona główna</title>
+    <!-- js i css -->
+    <!-- jezeli korzystamy z reset CSS to dodajemy go jako pierwszy -->
+    <link rel="stylesheet" href="./styles/slider.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+  </head>
+
+  <body>
+    <!-- 1405 - Cwiczenie 1 - Modal -->
+    <div class="modalContainer" id="newsletterModal">
+      <!-- display: flex, position: fixed -->
+      <div class="modal">
+        <!-- display: flex -->
+        <div class="modal__header">
+          <!-- <p>Newsletter</p> -->
+          <span class="closeIcon">
+            <svg
+              fill="#000000"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24px"
+              height="24px"
+            >
+              <path
+                d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="modal__content">
+          <p>
+            Zapisz się do newslettera i otrzymaj <strong>10% zniżki</strong> na
+            nagranie w moim wykonaniu😊Bluesky!
+          </p>
+
+          <form action="#">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="jan@kowalski.pl"
+              required
+            />
+            <input type="submit" value="Zapisz się" />
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- - Access Modal -->
+    <div class="modalContainer" id="accessModalContainer">
+      <div class="modal">
+        <div class="modal__header">
+          <span class="closeIcon">
+            <svg
+              fill="#000000"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24px"
+              height="24px"
+            >
+              <path
+                d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="modal__content">
+          <div class="content__switcher">
+            <div id="tab1" class="switchButton active">Login</div>
+            <div id="tab2" class="switchButton">Register</div>
+          </div>
+          <div class="content__content">
+            <div data-id="tab1" class="switchContent">
+              <form>
+                <input
+                  type="email"
+                  name="email"
+                  id="loginEmail"
+                  placeholder="email address"
+                  required
+                />
+                <br />
+                <input
+                  type="password"
+                  name="password"
+                  id="loginPassword"
+                  placeholder="strong pwd"
+                  autocomplete="false"
+                  required
+                />
+                <br />
+                <input type="submit" value="Login" />
+              </form>
+            </div>
+            <div data-id="tab2" class="switchContent">
+              <div class="container">
+                <div class="progress-container">
+                  <div class="progress" id="progress"></div>
+                  <div class="circle active">1</div>
+                  <div class="circle">2</div>
+                </div>
+
+                <div class="stepperContent">
+                  <div class="stepContent" id="step1">
+                    <form id="step1form">
+                      <input
+                        type="text"
+                        name="text"
+                        id="step1firstname"
+                        placeholder="first name"
+                      />
+                      <br />
+                      <input
+                        type="text"
+                        name="text"
+                        id="step1lastname"
+                        placeholder="last name"
+                      />
+                    </form>
+                  </div>
+                  <div class="stepContent" id="step2">
+                    <form>
+                      <input
+                        type="email"
+                        name="email"
+                        id="step2email"
+                        placeholder="Your email"
+                      />
+                      <br />
+                      <input
+                        type="password"
+                        name="password"
+                        id="step2password"
+                        placeholder="password"
+                        autocomplete="false"
+                      />
+                      <br />
+                      <input type="submit" value="Register" />
+                    </form>
+                  </div>
+                </div>
+
+                <button class="btn" id="prev" disabled>Prev</button>
+                <button class="btn" id="next">Next</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  - Access Modal - KONIEC -->
+    <header>
+      <div class="logo">
+        <img src="./img/logo1.png" width="80px" height="80px" />
+      </div>
+      <input type="checkbox" name="hamburgerCheck" id="hamburgerCheck" />
+      <label for="hamburgerCheck">
+        <div id="hamburger">
+          <span></span>
+        </div>
+      </label>
+      <nav>
+        <ul>
+          <li>
+            <a href="index.html">Main</a>
+          </li>
+          <li>
+            <a href="omnie.html">O mnie</a>
+          </li>
+          <li>
+            <a href="galeria2.html">Galeria</a>
+          </li>
+          <li>
+            <a href="Zarezerwuj.html">Rezerwacja</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="accessModalIcon">
+        <svg
+          width="16px"
+          height="16px"
+          viewBox="0 0 16 16"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="#ffffff"
+        >
+          <path
+            d="M16 7.992C16 3.58 12.416 0 8 0S0 3.58 0 7.992c0 2.43 1.104 4.62 2.832 6.09.016.016.032.016.032.032.144.112.288.224.448.336.08.048.144.111.224.175A7.98 7.98 0 0 0 8.016 16a7.98 7.98 0 0 0 4.48-1.375c.08-.048.144-.111.224-.16.144-.111.304-.223.448-.335.016-.016.032-.016.032-.032 1.696-1.487 2.8-3.676 2.8-6.106zm-8 7.001c-1.504 0-2.88-.48-4.016-1.279.016-.128.048-.255.08-.383a4.17 4.17 0 0 1 .416-.991c.176-.304.384-.576.64-.816.24-.24.528-.463.816-.639.304-.176.624-.304.976-.4A4.15 4.15 0 0 1 8 10.342a4.185 4.185 0 0 1 2.928 1.166c.368.368.656.8.864 1.295.112.288.192.592.24.911A7.03 7.03 0 0 1 8 14.993zm-2.448-7.4a2.49 2.49 0 0 1-.208-1.024c0-.351.064-.703.208-1.023.144-.32.336-.607.576-.847.24-.24.528-.431.848-.575.32-.144.672-.208 1.024-.208.368 0 .704.064 1.024.208.32.144.608.336.848.575.24.24.432.528.576.847.144.32.208.672.208 1.023 0 .368-.064.704-.208 1.023a2.84 2.84 0 0 1-.576.848 2.84 2.84 0 0 1-.848.575 2.715 2.715 0 0 1-2.064 0 2.84 2.84 0 0 1-.848-.575 2.526 2.526 0 0 1-.56-.848zm7.424 5.306c0-.032-.016-.048-.016-.08a5.22 5.22 0 0 0-.688-1.406 4.883 4.883 0 0 0-1.088-1.135 5.207 5.207 0 0 0-1.04-.608 2.82 2.82 0 0 0 .464-.383 4.2 4.2 0 0 0 .624-.784 3.624 3.624 0 0 0 .528-1.934 3.71 3.71 0 0 0-.288-1.47 3.799 3.799 0 0 0-.816-1.199 3.845 3.845 0 0 0-1.2-.8 3.72 3.72 0 0 0-1.472-.287 3.72 3.72 0 0 0-1.472.288 3.631 3.631 0 0 0-1.2.815 3.84 3.84 0 0 0-.8 1.199 3.71 3.71 0 0 0-.288 1.47c0 .352.048.688.144 1.007.096.336.224.64.4.927.16.288.384.544.624.784.144.144.304.271.48.383a5.12 5.12 0 0 0-1.04.624c-.416.32-.784.703-1.088 1.119a4.999 4.999 0 0 0-.688 1.406c-.016.032-.016.064-.016.08C1.776 11.636.992 9.91.992 7.992.992 4.14 4.144.991 8 .991s7.008 3.149 7.008 7.001a6.96 6.96 0 0 1-2.032 4.907z"
+          />
+        </svg>
+      </div>
+    </header>
+
+    <main>
+      <div class="hero">
+        <picture>
+          <source media="(max-width: 768px)" srcset="./img/hero-small.jpg" />
+          <source
+            media="(min-width: 769px) and (max-width: 1440px)"
+            srcset="./img/hero-medium.jpg"
+          />
+          <source media="(min-width: 1441px)" srcset="./img/hero-large.jpg" />
+          <img src="./img/hero-medium.jpg" alt="Hero" />
+        </picture>
+
+        <h1>Welcome</h1>
+      </div>
+
+      <article>
+       
+        <div class="single-content">
+          <p>
+            <span style="font-weight: 400">
+            Skok ze spadochronem to marzenie wielu z nas. Nie jest ono przy tym
+          bardzo trudne do realizacji. Aby zacząć przygodę ze skakaniem z dużych
+          wysokości nie trzeba posiadać wybitnej kondycji fizycznej. Wystarczy
+          odpowiednie przygotowanie fizyczne i pokonanie bariery
+          psychologicznej, co stanowi niewątpliwie największą trudność tego
+          sportu. Nauka wymaga oczywiście inwestycji w szkolenia i godziny
+          spędzone z instruktorami, wiąże się także z koniecznością odbywania
+          wielu lotów samolotem.
+            </span>
+          </p>
+          <h2>
+            <span style="font-weight: 400">Naziemne początki</span>
+          </h2>
+          <p>
+            <span style="font-weight: 400">
+              Wykonanie pierwszego, samodzielnego skoku spadochronowego poprzedza podzielona na kilka etapów nauka. Obejmuje ją wiele godzin przygotowań teoretycznych oraz praktycznych zajęć prowadzonych na ziemi. Osoba szkoląca się poznaje obsługę spadochronu i wiedzę na temat fizyki poruszania się w powietrzu. Po przejściu tego etapu może odbyć swój pierwszy skok. 
+            </span>
+          </p>
+          <h2>
+            <span style="font-weight: 400">Nauka w powietrzu</span>
+          </h2>
+          <p>
+            <span style="font-weight: 400">
+              Dalsza część szkolenia, realizowanego już w przestworzach polega często na wykonywaniu lotu w formule AFF. Skok wykonywany jest z dwójką instruktorów, którzy, utrzymując niewielką odległość, uczą kursanta przyjmowania poprawnej pozycji i obsługi spadochronu. Jak widać nauka jest wieloetapowa, a zostanie skoczkiem spadochronowym wymaga wielu wysiłków. Jakkolwiek możliwe jest pominięcie tego procesu. Skok w tandemie z instruktorem nie wymaga żadnych szczególnych umiejętności i może być zrealizowany jednorazowo. Przejdź do zakladki Rezerwacja i zapisz się już dziś na swój pierwszy skok lub kup w prezencie dla bliskiej osoby :).
+            </span>
+          </p>
+        </div>
+        
+          <h4>Co należy zrobić, aby zostać skoczkiem spadochronowym?</h4>
+
+          
+        </span>
+
+        <div
+          class="post-body enter-content"
+          id="post-body-2"
+          itemprop="discription articleBody"
+        >
+          <h3>SPRZĘT DO SKAKANIA</h3>
+          <p>
+            Chyba nikogo nie zdziwię, kiedy powiem, że sprzęt do skakania z
+            samolotu jest baaardzo drogi:) Mi wystarcza ten z wypożyczalni
+            klubowej, niby to są koszty, ale pokrywają się z zakupem swojego
+            spadochronu, kombinezonu, kasku itd. Chętnie bym sobie zakupił
+            własny spadochron, ale nie jest to zbyt opłacalne, bo i tak
+            musiałbym oddawać go do przeglądu co też niemało kosztuje. Do tego
+            koszty odpowiedniego zwijania spadochronu, bo ja się jeszcze do tego
+            nie zabieram, dojazdu. Uświadamiam sobie jakie to drogie hobby:) Ale
+            z drugiej strony po co siedzę tyle czasu w biurze? Mam nawet dwa
+            filmy z wysokości, oczywiście nagrywane przez kamerzystę, ale
+            zrezygnowałem z tego. Śmiesznie wyglądam:) A pokazać znajomym i
+            rodzinie mam co, więc reszta zostaje dla mnie. Te niesamowite
+            widoki, to, że spadasz z taką a nie inną szybkością, wiatr. Z
+            początku skakałem z 3000 metrów ale już mam za sobą skok 4000
+            metrów. I wiecie co? Im dłużej się spada, tym chciałoby się jeszcze
+            więcej:) Adrenalina tez jest większa i słyszałem, że niektórym
+            trudniej obczaić się z otwarciem spadochronu. Dla mnie na szczęście
+            to nie problem po dobrym i drogim kursie. Ale opłacał się:)
+          </p>
+
+          
+        </div>
+      </article>
+      <div class="bottomContent">
+        <p>
+          
+        </p>
+        <p>
+          
+        </p>
+      </div>
+    </main>
+    <footer>
+      <p>Copyright</p>
+    </footer>
+    <!-- <script src="./scripts/script.js"></script> -->
+    <!-- <script src="./scripts/superheroes.js"></script> -->
+    <script src="./scripts/1405/script.js"></script>
+  </body>
+</html>
